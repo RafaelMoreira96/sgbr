@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePercasTable extends Migration
+class CreateItemPercasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreatePercasTable extends Migration
      */
     public function up()
     {
-        Schema::create('percas', function (Blueprint $table) {
-            $table->id();
-            $table->date('dataPerca');
-            $table->foreignId('vendedorId')->constrained('vendedors');
-            $table->softDeletes();
-            $table->timestamps();
+        Schema::create('item_percas', function (Blueprint $table) {
+            $table->foreignId('percaId')->constrained('percas');
+            $table->foreignId('produtoId')->constrained('produtos');
+            $table->float('qte');
         });
     }
 
@@ -29,6 +27,6 @@ class CreatePercasTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('percas');
+        Schema::dropIfExists('item_percas');
     }
 }
