@@ -9,6 +9,9 @@ class Pessoa extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['nome', 'tipoPessoa', 'endereco', 'complemento', 'bairro', 'cidade', 'estado', 'email', 'telefone'];
+    protected $fillable = [
+        'nome', 'tipoPessoa', 'endereco', 'complemento', 'bairro', 'cidade', 'estado', 'email', 'telefone'
+    ];
+
 
 }
